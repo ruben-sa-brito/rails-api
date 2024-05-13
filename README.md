@@ -1,24 +1,6 @@
-# README
+Rails Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Explorando as funcionalidades basicas do rails com relação a apis rest,
+por enquanto temos uma tabela de clientes hospedada em um banco postgresql
+os dados foram gerados utilizando a gem 'faker' do ruby contido em db/seeds.rb,
+a rota princial fica em /clientes, que construirá o json atraves do jbuilder utilizando o método get.
