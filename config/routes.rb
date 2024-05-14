@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "/administradores/login", to: "administradores#login"
+  resources :administradores
   resources :funcionarios
   root "home#index"
 
