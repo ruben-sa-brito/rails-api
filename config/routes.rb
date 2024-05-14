@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :funcionarios
   root "home#index"
 
   get "/clientes", to: "clientes#index"
