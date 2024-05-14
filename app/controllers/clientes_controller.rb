@@ -14,6 +14,10 @@ class ClientesController < ApplicationController
         render json: @cliente.errors, status: 400     
     end
 
+    def destroy
+        return render json: {}, status: 204 if Cliente.find(params[:id]).destroy       
+    end
+
     private
     def clientes_params
         params.permit(:nome, :telefone, :cpf)
