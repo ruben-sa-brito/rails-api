@@ -1,6 +1,6 @@
 class AdministradoresController < ApplicationController
   before_action :set_administrador, only: %i[ show update destroy ]
-  skip_before_action :autenticacao, only: [:login]
+  skip_before_action :autenticacao, only: [:login, :create]
 
   def login
     @administrador = Administrador.where(email: params[:email], senha: params[:senha]).first
