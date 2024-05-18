@@ -5,8 +5,12 @@ class AdministradoresController < ApplicationController
   def login
     @administrador = Administrador.where(email: params[:email]).first
     
+    
+    # unless @administrador.authenticate(params[:senha])
+    #   return render json: {erro: "Login ou senha inválido"}, status: 401 
+    # end  
     # puts @administrador.senha
-    if BCrypt::Password.new(@administrador.senha) != params[:senha]
+    if BCrypt::Password.new(@administrador.senha) != params[:senha] + @administrador.salt 
       return render json: {erro: "Login ou senha inválido"}, status: 401 
     end  
 

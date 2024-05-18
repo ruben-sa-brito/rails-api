@@ -4,9 +4,15 @@ class Administrador < ApplicationRecord
 
     before_save do
         unless self.senha_criptografada?
-            self.senha = BCrypt::Password.create(self.senha)
+            self.atualizar_senha(self.senha)
         end    
-    end 
+    end
+    
+    def atualizar_senha(senha_descriptografada)
+        self.salt = BCrypt::Engine.generate_salt
+        self.senha = BCrypt::Password.create(senha_descriptografada + self.salt)
+    end    
+
     
     private
     def senha_criptografada?
